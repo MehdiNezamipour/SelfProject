@@ -1,10 +1,18 @@
 buildscript {
+    apply from: 'versions.gradle'
+
+    addRepos(repositories)
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath deps.android_gradle_plugin
+        classpath deps.kotlin_gradle_plugin
+        classpath deps.playservice_gradle_plugin
+        classpath deps.hilt_plugin
     }
-}// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+}
+
+allprojects {
+    addRepos(repositories)
 }
 
 task clean(type: Delete) {
